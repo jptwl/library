@@ -1,0 +1,16 @@
+
+.top{
+  display: flex;
+  justify-content: flex-end;
+}
+.top>div{
+  margin: 0 5px 0 5px;
+}
+.top>div>span{
+  cursor: pointer;
+}
+
+.top>div> :active{
+  text-decoration-line: underline;
+  color: #0000f6;
+}

@@ -1,0 +1,17 @@
+<div class="type-in">
+  <h3>书籍录入</h3>
+  <div class="main">
+    <p><input type="text" placeholder="title" [(ngModel)]="bookInfo.title" > </p>
+    <p><input type="text" placeholder="author" [(ngModel)]="bookInfo.author"> </p>
+    <p><input type="text" placeholder="price" [(ngModel)]="bookInfo.price"> </p>
+    <p><input type="text" placeholder="publisher" [(ngModel)]="bookInfo.publisher"> </p>
+    <p><input type="number" placeholder="total_stock" [(ngModel)]="bookInfo.total_stock"> </p>
+    <p><input type="text" placeholder="ISBN" [(ngModel)]="bookInfo.ISBN"> </p>
+    <textarea type="text" placeholder="describe" [(ngModel)]="bookInfo.describe"> </textarea>
+  </div>
+  <div class="operator">
+    <button (click)="save()">录入</button>
+    <button (click)="saveAndNext()">录入并下条</button>
+    <button (click)="clearInfo()">清除</button>
+  </div>
+</div>
