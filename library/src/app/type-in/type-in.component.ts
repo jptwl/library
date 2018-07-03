@@ -37,7 +37,8 @@ export class TypeInComponent implements OnInit {
   constructor(private bookService: BookService) {}
 
   getBook() :void {
-    this.bookInfo = this.bookService.getBook();
+    this.bookService.getBook()
+      .subscribe(bookInfo => this.bookInfo = bookInfo)
   }
 
   ngOnInit() {
