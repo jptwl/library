@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookInfo } from 'bookInfo';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-type-in',
@@ -8,15 +9,7 @@ import { BookInfo } from 'bookInfo';
 })
 export class TypeInComponent implements OnInit {
 
-  bookInfo: BookInfo = {
-    title:"测试1",
-    author:"作者1",
-    price:"价格1",
-    publisher:"出版社1",
-    total_stock:1,
-    ISBN:"书号",
-    describe:"描述"
-  };
+  bookInfo: BookInfo;
 
   save(callback): void{
     alert( JSON.stringify(this.bookInfo));
@@ -41,12 +34,14 @@ export class TypeInComponent implements OnInit {
     this.save(this.clearInfo());
   }
 
-  constructor() {
+  constructor(private bookService: BookService) {}
 
+  getBook() :void {
+    this.bookInfo = this.bookService.getBook();
   }
 
   ngOnInit() {
-
+    this.getBook();
   }
 
 }
