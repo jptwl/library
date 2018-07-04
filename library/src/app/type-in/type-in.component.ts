@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookInfo } from 'bookInfo';
+import { BookInfo } from 'src/app/bookInfo';
 import { BookService } from '../book.service';
 
 @Component({
@@ -11,23 +11,25 @@ export class TypeInComponent implements OnInit {
 
   bookInfo: BookInfo;
 
-  save(callback): void{
+  save(callback): void {
+    this.bookService.updateBook(this.bookInfo)
+      .subscribe(() => this.clearInfo());
     alert( JSON.stringify(this.bookInfo));
     callback&&callback();
   }
 
   clearInfo(): void{
     this.bookInfo = {
-      title:"",
-      author:"",
-      price:"",
-      publisher:"",
-      total_stock:0,
-      ISBN:"",
-      describe:""
+      title: '',
+      author: '',
+      price: '',
+      publisher: '',
+      total_stock: 0,
+      ISBN: '',
+      describe: ''
     };
 
-    console.log("all clear")
+    console.log('all clear');
   }
 
   saveAndNext(): void{
@@ -36,9 +38,9 @@ export class TypeInComponent implements OnInit {
 
   constructor(private bookService: BookService) {}
 
-  getBook() :void {
+  getBook(): void {
     this.bookService.getBook()
-      .subscribe(bookInfo => this.bookInfo = bookInfo)
+      .subscribe(bookInfo => this.bookInfo = bookInfo);
   }
 
   ngOnInit() {
